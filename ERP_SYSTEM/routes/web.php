@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+// Route::get('/company', function () {
+//     return view('company/index');
+// });
+
+Route::controller(CompanyController::class)->group(function () {
+    Route::get('/company', 'index');
+    Route::get('/company/create', 'create');
+    Route::post('/company/create', 'store');
+    Route::get('/company/{id}', 'show');
+    Route::get('/company/edit', 'edit');
+    Route::patch('/company/{id}', 'update');
+    Route::post('/company', 'store');
 });
 
 Route::middleware([
