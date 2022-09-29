@@ -23,7 +23,7 @@ Route::get('/', function () {
 // });
 
 Route::controller(CompanyController::class)->group(function () {
-    Route::get('/company', 'index');
+    Route::get('/company', 'index')->name('company.index');
     Route::get('/company/create', 'create');
     Route::post('/company/create', 'store');
     Route::get('/company/{id}', 'show');
