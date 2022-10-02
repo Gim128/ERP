@@ -24,12 +24,11 @@ Route::get('/', function () {
 
 Route::controller(CompanyController::class)->group(function () {
     Route::get('/company', 'index')->name('company.index');
-    Route::get('/company/create', 'create');
-    Route::post('/company/create', 'store');
+    Route::get('/company/create', 'create')->name('company.create');
+    Route::post('/company', 'store')->name('company.store');
     Route::get('/company/{id}', 'show');
     Route::get('/company/edit', 'edit');
     Route::patch('/company/{id}', 'update');
-    Route::post('/company', 'store');
 });
 
 Route::middleware([
