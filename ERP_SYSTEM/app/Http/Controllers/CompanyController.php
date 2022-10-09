@@ -25,7 +25,6 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
         return view('company.create');
     }
 
@@ -37,8 +36,13 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        return "test";
+        $validated = $request->validate([
+            'name' => 'required|min:4',
+            'email' => 'required|email',
+            // 'message' => 'required',
+            'mobile' => 'required|digits:10',
+        ]);
+        dd('validated');
     }
 
     /**
