@@ -14,8 +14,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
-        return view('company.index');
+        $companies = Company::get();
+        return view('company.index', compact('companies'));
     }
 
     /**
@@ -38,11 +38,12 @@ class CompanyController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|min:4',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:companies',
             // 'message' => 'required',
             'mobile' => 'required|digits:10',
         ]);
-        dd('validated');
+        Company::create($validated);
+        return redirect(route('company.index'));
     }
 
     /**
