@@ -14,7 +14,7 @@
                     <div>
                         <x-jet-label for="name" value="{{ __('Name') }}" />
                         <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"  autofocus />
-                        @errpr('name')
+                        @error('name')
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
@@ -22,21 +22,33 @@
                     <div>
                         <x-jet-label for="email" value="{{ __('Email') }}" />
                         <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"  autofocus />
+                        @error('email')
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div>
                         <x-jet-label for="mobile" value="{{ __('Mobile') }}" />
-                        <x-jet-input id="mobile" class="block mt-1 w-full" type="mobile" name="mobile" :value="old('mobile')"  maxlength='10'/>
+                        <x-jet-input id="mobile" class="block mt-1 w-full" type="text" name="mobile" :value="old('mobile')"  maxlength='10'/>
+                        @error('mobile')
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div>
                         <x-jet-label for="subject" value="{{ __('Subject') }}" />
                         <x-jet-input id="subject" class="block mt-1 w-full" type="text" name="subject" :value="old('subject')"  autofocus />
+                        @error('subject')
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div>
                         <x-jet-label for="message" value="{{ __('Mesasge') }}" />
                         <x-jet-input id="message" class="block mt-1 w-full" type="text" name="message" :value="old('message')"  autofocus />
+                        @error('message')
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
 
                         <x-jet-button class="mt-4">

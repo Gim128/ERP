@@ -39,7 +39,7 @@ class CompanyController extends Controller
         $validated = $request->validate([
             'name' => 'required|min:4',
             'email' => 'required|email|unique:companies',
-            // 'message' => 'required',
+            'message' => 'required',
             'mobile' => 'required|digits:10',
         ]);
         Company::create($validated);
